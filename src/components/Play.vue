@@ -1451,6 +1451,9 @@ export default {
         stallCount = 0
         clearTimeout(stallIptvTimeout)
       })
+      this.xg.on('destroy', () => {
+        clearTimeout(stallIptvTimeout)
+      })
 
       this.xg.on('exitFullscreen', () => {
         if (this.miniMode) this.xg.getCssFullscreen()
